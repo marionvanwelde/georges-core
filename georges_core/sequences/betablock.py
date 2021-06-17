@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Optional
 from dataclasses import dataclass
 from .. import ureg as _ureg
-
+import numpy as _np
 
 class BetaBlockType(type):
     """TODO"""
@@ -43,6 +43,7 @@ class BetaBlock(metaclass=BetaBlockType):
     NU1: float = 0.0
     NU2: float = 0.0
     U: float = 0.0
+    R: _np.ndarray = _np.identity(4)
 
     def __post_init__(self):
         if self.GAMMA11 is None:
